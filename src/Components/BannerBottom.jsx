@@ -13,7 +13,7 @@ const BannerBottom = () => {
           <div class="col-md-7 text-center">
             <h2 class="text-white">Get In Touch With Us</h2>
             <p class="lead text-white">Got questions? Just reach out — we’re happy to help!</p>
-            <p class="mb-0"><a href="#" class="btn btn-warning py-3 px-5 text-white">Contact Us</a></p>
+            <p class="mb-0"><a href="/contact" class="btn btn-warning py-3 px-5 text-white">Contact Us</a></p>
           </div>
         </div>
       </div>

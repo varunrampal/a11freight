@@ -1656,3 +1656,20 @@ h1, h2, h3, h4, h5,
     background-color: #e6c221;
     border-color: #e6c221;
 }
+
+/* Make each slide tall and cover the image nicely */
+.site-blocks-cover .intro-section {
+  min-height: 80vh;              /* adjust as needed */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Optional: subtle dark overlay for readability */
+.site-blocks-cover .intro-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.25);
+}
+.site-blocks-cover .intro-section { position: relative; } /* so ::before is positioned */
+.site-blocks-cover .intro-section > .container { position: relative; z-index: 1; }
