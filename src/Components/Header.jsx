@@ -11,7 +11,7 @@ const Header = () => {
       <div className="container header-inner">
         <NavLink className="brand" to="/" onClick={() => setOpen(false)}><img src={logoImage} alt="" /><span>A11 Freight</span></NavLink>
         <nav className="nav-links" aria-label="Primary navigation">{links.map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}</nav>
-        <div className="header-contact"><a href="tel:+16042172992"><Phone size={14} />604 217 2992</a><a href="mailto:info@a11freight.com"><Mail size={14} />info@a11freight.com</a></div>
+        <div className="header-contact"><a href="tel:+18334989898"><Phone size={14} />1-833-498-9898</a><a href="mailto:info@a11freight.com"><Mail size={14} />info@a11freight.com</a></div>
         <NavLink className="btn btn-primary" to="/booking">Get a Quote <ArrowUpRight size={15} /></NavLink>
         <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>{open ? <X /> : <Menu />}</button>
       </div>

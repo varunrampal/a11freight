@@ -1,5 +1,6 @@
 #root { min-height: 100vh; }
 .app-shell { overflow: hidden; background: #fdfcfb; }
+a[href="tel:+18334989898"] { color: #111827 !important; font-weight: 800; }
 .container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
 .section { padding: 108px 0; }
 .section--soft { background: #faf8f5; }
@@ -38,7 +39,7 @@
 .mobile-nav a:hover { color: #111827 !important; }
 .mobile-nav a.active { color: #b76a47 !important; }
 .hero { position: relative; padding: 94px 0 108px; color: #fff; background: #171b22; }
-.hero::before { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,27,34,.98) 0%, rgba(23,27,34,.82) 45%, rgba(23,27,34,.38) 100%), url('./assets/images/hero_2.jpg') center/cover; content: ''; opacity: .9; }
+.hero::before { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,27,34,.98) 0%, rgba(23,27,34,.82) 45%, rgba(23,27,34,.38) 100%), url('./assets/images/hero-trucks-free.jpg') center/cover; content: ''; opacity: .9; }
 .hero::after { position: absolute; top: -180px; right: 2%; width: 480px; height: 480px; border: 1px solid rgba(183,106,71,.2); border-radius: 50%; box-shadow: 0 0 0 38px rgba(183,106,71,.035), 0 0 0 90px rgba(183,106,71,.02); content: ''; }
 .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, .75fr); align-items: center; gap: 72px; }
 .hero h1 { max-width: 700px; margin: 20px 0 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(42px, 5vw, 68px); line-height: 1.04; letter-spacing: -.05em; }
@@ -133,7 +134,7 @@
 
 /* 2026 site rebuild */
 .hero { min-height: 720px; display: flex; align-items: center; padding: 105px 0 125px; isolation: isolate; }
-.hero::before { z-index: -2; background: linear-gradient(90deg, rgba(17,20,25,.96) 0%, rgba(17,20,25,.78) 50%, rgba(17,20,25,.34) 100%), url('./assets/images/hero_2.jpg') center 45%/cover; opacity: 1; }
+.hero::before { z-index: -2; background: linear-gradient(90deg, rgba(17,20,25,.96) 0%, rgba(17,20,25,.78) 50%, rgba(17,20,25,.34) 100%), url('./assets/images/hero-trucks-free.jpg') center 58%/cover; opacity: 1; }
 .hero::after { z-index: -1; top: auto; right: 0; bottom: 0; width: 38%; height: 6px; border: 0; border-radius: 0; background: #b76a47; box-shadow: none; }
 .hero-inner { width: 100%; grid-template-columns: minmax(0, 1fr) 290px; gap: 100px; }
 .hero-copy { max-width: 780px; }
@@ -247,6 +248,36 @@
   .story-image-wrap img { height: 370px; }
   .coverage-visual { min-height: 260px; padding: 38px 24px; }
   .route-track { margin: 58px 10px; }
+}
+
+/* Footer */
+.footer { padding: 80px 0 24px; background: #12151a; color: #fff; }
+.footer, .footer p, .footer span, .footer a, .footer li { color: #fff; }
+.footer-top { display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: 90px; padding-bottom: 58px; }
+.footer-intro h2 { max-width: 680px; margin: 24px 0 16px; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(30px, 4vw, 48px); line-height: 1.12; letter-spacing: -.04em; }
+.footer-intro > p { max-width: 520px; margin: 0; font-size: 13px; line-height: 1.75; opacity: .74; }
+.footer-brand { margin: 0; }
+.footer-dispatch { display: grid; gap: 15px; padding: 28px; border: 1px solid #353941; }
+.footer-dispatch > span { font-size: 9px; font-weight: 800; letter-spacing: .15em; opacity: .62; text-transform: uppercase; }
+.footer-dispatch a { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.footer-dispatch a[href="tel:+18334989898"] { color: #fff !important; font-size: 22px; }
+.footer-dispatch a[href^="mailto:"] { font-size: 12px; opacity: .78; }
+.footer-dispatch a:last-child { justify-content: space-between; margin-top: 7px; padding-top: 18px; border-top: 1px solid #353941; color: #d49a7d !important; font-size: 11px; }
+.footer-links-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding: 42px 0; border-top: 1px solid #2d3138; border-bottom: 1px solid #2d3138; }
+.footer-links-grid h3 { margin-bottom: 20px; }
+.footer-links-grid ul { gap: 10px; }
+.footer-links-grid li, .footer-links-grid p { font-size: 12px; opacity: .72; }
+.footer-links-grid a:hover { color: #d49a7d !important; opacity: 1; }
+.footer-location { display: flex; align-items: flex-start; gap: 9px; line-height: 1.6; }
+.footer-location svg { flex: 0 0 auto; color: #d49a7d; }
+.footer-bottom { margin-top: 0; border-top: 0; color: #fff; }
+.footer-bottom span { opacity: .58; }
+
+@media (max-width: 720px) {
+  .footer { padding-top: 60px; }
+  .footer-top, .footer-links-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-top { align-items: start; }
+  .footer-links-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 980px) { .header-contact { display: none; } .nav-links { gap: 20px; } .hero-inner, .form-shell, .area-layout { grid-template-columns: 1fr; gap: 42px; } .hero-card { max-width: 560px; } .form-shell > div:first-child { max-width: 700px; } }
 @media (max-width: 720px) { .container { width: min(100% - 32px, 560px); } .section { padding: 72px 0; } .header-inner { min-height: 66px; } .brand img { width: 112px; } .nav-links, .header-inner > .btn { display: none; } .menu-toggle { display: block; } .hero { padding: 70px 0 84px; } .hero h1 { font-size: 43px; } .hero p { font-size: 15px; } .hero-proof { gap: 14px; } .trust-grid { grid-template-columns: 1fr 1fr; } .trust-item { padding: 17px; font-size: 11px; } .trust-item:nth-child(2) { border-right: 0; } .trust-item:nth-child(-n+2) { border-bottom: 1px solid #e8e2dc; } .card-grid, .steps, .footer-grid { grid-template-columns: 1fr; } .steps { gap: 27px; } .step { padding: 0; } .step:not(:last-child)::after { top: 37px; left: 18px; width: 1px; height: 30px; } .form-card { padding: 22px; } .form-grid { grid-template-columns: 1fr; } .field--full { grid-column: auto; } .cta-inner, .footer-bottom { align-items: flex-start; flex-direction: column; } .cta h2 { font-size: 29px; } .footer-grid { gap: 28px; } }

@@ -11,7 +11,7 @@ export default function Slider() {
           <p>Dependable FTL, LTL and commercial delivery backed by responsive dispatch, careful handling and local expertise.</p>
           <div className="hero-actions">
             <Link className="btn btn-primary" to="/booking">Request a quote <ArrowRight size={16} /></Link>
-            <a className="hero-phone" href="tel:+16042172992"><Headphones size={18} /><span><small>Speak with dispatch</small>604 217 2992</span></a>
+            <a className="hero-phone" href="tel:+18334989898"><Headphones size={18} /><span><small>Speak with dispatch</small>1-833-498-9898</span></a>
           </div>
         </div>
         <aside className="hero-panel">
