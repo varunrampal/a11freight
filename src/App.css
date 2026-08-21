@@ -76,6 +76,9 @@ a[href="tel:+18334989898"] { color: #111827 !important; font-weight: 800; }
 .form-status { margin: 12px 0 0; border-radius: 7px; padding: 11px; font-size: 12px; font-weight: 700; }
 .form-status.success { color: #166534; background: #dcfce7; }
 .form-status.error { color: #991b1b; background: #fee2e2; }
+.form-status.submitting { color: #1e40af; background: #dbeafe; }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+.form-submit:disabled { cursor: wait; opacity: .7; }
 .feature-list { display: grid; gap: 17px; margin: 29px 0 0; padding: 0; list-style: none; }
 .feature-list li { display: flex; gap: 13px; color: #475569; font-size: 14px; line-height: 1.55; }
 .feature-list svg { flex: 0 0 auto; color: #9a5637; }
