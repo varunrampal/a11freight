@@ -27,6 +27,6 @@ export default async function handler(request, response) {
     return response.status(200).json({ ok: true, id: result.id })
   } catch (error) {
     console.error('Quote submission failed:', error)
-    return response.status(500).json({ error: 'We could not send your request. Please try again or email info@a11freight.com.' })
+    return response.status(500).json({ error: 'We could not send your request. Please try again or email info@a11freight.ca.' })
   }
 }

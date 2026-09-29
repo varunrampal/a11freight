@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin, Phone, Printer } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import logoImage from '../assets/images/a11-logo-footer.png'
 
@@ -14,7 +14,8 @@ export default function Footer() {
         <div className="footer-dispatch">
           <span>Talk to dispatch</span>
           <a href="tel:+18334989898"><Phone size={19} /> 1-833-498-9898</a>
-          <a href="mailto:info@a11freight.com"><Mail size={17} /> info@a11freight.com</a>
+          <div className="footer-fax"><Printer size={17} /> Fax: 604-455-8168</div>
+          <a href="mailto:info@a11freight.ca"><Mail size={17} /> info@a11freight.ca</a>
           <Link to="/booking">Request a freight quote <ArrowUpRight size={16} /></Link>
         </div>
       </div>

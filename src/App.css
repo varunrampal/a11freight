@@ -263,6 +263,7 @@ a[href="tel:+18334989898"] { color: #111827 !important; font-weight: 800; }
 .footer-dispatch { display: grid; gap: 15px; padding: 28px; border: 1px solid #353941; }
 .footer-dispatch > span { font-size: 9px; font-weight: 800; letter-spacing: .15em; opacity: .62; text-transform: uppercase; }
 .footer-dispatch a { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.footer-fax { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; opacity: .78; }
 .footer-dispatch a[href="tel:+18334989898"] { color: #fff !important; font-size: 22px; }
 .footer-dispatch a[href^="mailto:"] { font-size: 12px; opacity: .78; }
 .footer-dispatch a:last-child { justify-content: space-between; margin-top: 7px; padding-top: 18px; border-top: 1px solid #353941; color: #d49a7d !important; font-size: 11px; }
