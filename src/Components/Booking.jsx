@@ -11,7 +11,6 @@ function AddressAutocomplete({ label, name, value, onChange, required }) {
   const listId = `${name}-suggestions`
   const requestId = useRef(0)
   const selectedValue = useRef(null)
-  const apiKey = import.meta.env.VITE_GEOAPIFY_API_KEY
 
   useEffect(() => {
     const query = value.trim()
@@ -25,24 +24,22 @@ function AddressAutocomplete({ label, name, value, onChange, required }) {
       setLoading(false)
       return
     }
-    if (!apiKey) {
-      setSuggestions([])
-      setIsOpen(false)
-      setLoading(false)
-      return
-    }
-
     const controller = new AbortController()
     const currentRequest = ++requestId.current
     const timer = setTimeout(async () => {
       setLoading(true)
       try {
-        const params = new URLSearchParams({ text: query, limit: '10', lang: 'en', filter: 'rect:-139.06,48.3,-114.03,60|countrycode:ca', apiKey })
-        const response = await fetch(`https://api.geoapify.com/v1/geocode/autocomplete?${params}`, { signal: controller.signal })
+        const params = new URLSearchParams({ q: query, limit: '10', lang: 'en', countrycode: 'CA', bbox: '-139.06,48.3,-114.03,60' })
+        const response = await fetch(`https://photon.komoot.io/api/?${params}`, { signal: controller.signal })
         if (!response.ok) throw new Error('Address search unavailable')
         const data = await response.json()
         if (currentRequest !== requestId.current) return
-        setSuggestions((data.features || []).filter(({ properties = {} }) => properties.state_code?.toUpperCase() === 'BC' || properties.state?.toLowerCase() === 'british columbia').map(({ properties }) => properties.formatted).filter(Boolean).slice(0, 5))
+        setSuggestions((data.features || []).filter(({ properties = {} }) => properties.countrycode?.toUpperCase() === 'CA' && properties.state?.toLowerCase() === 'british columbia').map(({ properties = {} }) => {
+          const street = [properties.housenumber, properties.street].filter(Boolean).join(' ')
+          return [street, properties.name !== street ? properties.name : '', properties.city || properties.locality || properties.district, properties.state, properties.postcode, properties.country]
+            .filter((part, index, all) => part && all.indexOf(part) === index)
+            .join(', ')
+        }).filter(Boolean).slice(0, 5))
         setActiveIndex(-1)
         setIsOpen(true)
       } catch (error) {
@@ -56,7 +53,7 @@ function AddressAutocomplete({ label, name, value, onChange, required }) {
       clearTimeout(timer)
       controller.abort()
     }
-  }, [value, apiKey])
+  }, [value])
 
   const choose = (address) => {
     selectedValue.current = address
@@ -87,7 +84,7 @@ function AddressAutocomplete({ label, name, value, onChange, required }) {
     <input id={name} name={name} type="text" value={value} onChange={onChange} onKeyDown={handleKeyDown} onFocus={() => suggestions.length && setIsOpen(true)} onBlur={() => setTimeout(() => setIsOpen(false), 100)} required={required} placeholder="Start typing an address or city" autoComplete="street-address" role="combobox" aria-autocomplete="list" aria-expanded={isOpen} aria-controls={listId} aria-activedescendant={activeIndex >= 0 ? `${listId}-${activeIndex}` : undefined} />
     {isOpen && suggestions.length > 0 && <ul className="address-suggestions" id={listId} role="listbox">
       {suggestions.map((address, index) => <li key={`${address}-${index}`} role="presentation"><button id={`${listId}-${index}`} type="button" role="option" aria-selected={activeIndex === index} className={activeIndex === index ? 'is-active' : ''} onMouseDown={(event) => event.preventDefault()} onClick={() => choose(address)}>{address}</button></li>)}
-      <li className="address-attribution" role="presentation"><a href="https://www.geoapify.com/" target="_blank" rel="noreferrer">Powered by Geoapify</a> | <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap contributors</a></li>
+      <li className="address-attribution" role="presentation"><a href="https://github.com/komoot/photon" target="_blank" rel="noreferrer">Powered by Photon</a> | <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap contributors</a></li>
     </ul>}
     {loading && <span className="address-hint" role="status">Searching addresses...</span>}
   </div>

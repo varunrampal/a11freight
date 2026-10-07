@@ -6,7 +6,7 @@ The booking form sends quote requests to `/api/quote-resend.php`. The browser ne
 
 For Hostinger-style PHP hosting, copy `quote-config.example.php` to `quote-config.php`, enter the real Resend API key, and upload that private configuration one directory above `public_html`. Upload the contents of `dist` to `public_html`; the build includes `dist/api/quote-resend.php`. The `a11freight.ca` sender domain must be verified in Resend.
 
-For local development, copy `.env.example` to `.env.local`, enter the server-side values and your Geoapify key, and run `npm run dev`. Vite maps the PHP route to the local Node handler. The Geoapify key is included in the browser build, so restrict it to the production domain and localhost in Geoapify. Set `VITE_GEOAPIFY_API_KEY` before building for production. Never commit `.env.local`, `quote-config.php`, or server-side API keys.
+For local development, copy `.env.example` to `.env.local`, enter the server-side values, and run `npm run dev`. Vite maps the PHP route to the local Node handler. Never commit `.env.local`, `quote-config.php`, or server-side API keys.
 
 ## React + Vite
 
